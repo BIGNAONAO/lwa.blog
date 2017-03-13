@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="effective java," />
 
 
 
@@ -84,12 +84,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="lwa的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="为了保证一些必要参数的存在，可以用构造器传参的方式来创建对象。可以提供第一个只含有必要参数的构造器，第二个有一个可选参数的构造器，第三个有多个可选参数的构造器等等。123456789101112131415161718192021222324252627public class Person &amp;#123;        private String name;    //required">
+<meta property="og:type" content="article">
+<meta property="og:title" content="遇到多个构造器参数时要考虑用构建器（Builder）">
+<meta property="og:url" content="http://yoursite.com/2017/03/13/遇到多个构造器参数时要考虑用构建器（Builder）/index.html">
 <meta property="og:site_name" content="lwa的博客">
+<meta property="og:description" content="为了保证一些必要参数的存在，可以用构造器传参的方式来创建对象。可以提供第一个只含有必要参数的构造器，第二个有一个可选参数的构造器，第三个有多个可选参数的构造器等等。123456789101112131415161718192021222324252627public class Person &amp;#123;        private String name;    //required">
+<meta property="og:updated_time" content="2017-03-13T08:01:14.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lwa的博客">
+<meta name="twitter:title" content="遇到多个构造器参数时要考虑用构建器（Builder）">
+<meta name="twitter:description" content="为了保证一些必要参数的存在，可以用构造器传参的方式来创建对象。可以提供第一个只含有必要参数的构造器，第二个有一个可选参数的构造器，第三个有多个可选参数的构造器等等。123456789101112131415161718192021222324252627public class Person &amp;#123;        private String name;    //required">
 
 
 
@@ -107,7 +111,7 @@
   };
 </script>
 
-  <title> lwa的博客 </title>
+  <title> 遇到多个构造器参数时要考虑用构建器（Builder） | lwa的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -138,9 +142,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -227,9 +229,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -249,10 +251,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/03/13/遇到多个构造器参数时要考虑用构建器（Builder）/" itemprop="url">
-                  遇到多个构造器参数时要考虑用构建器（Builder）
-                </a>
+                遇到多个构造器参数时要考虑用构建器（Builder）
               
             
           </h1>
@@ -318,9 +317,7 @@
       
 
       
-        
-          
-            <p>为了保证一些必要参数的存在，可以用构造器传参的方式来创建对象。可以提供第一个只含有必要参数的构造器，第二个有一个可选参数的构造器，第三个有多个可选参数的构造器等等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class Person &#123;</div><div class="line">        private String name;    //required</div><div class="line">        private String phoneNum;    //required</div><div class="line">        private int sex;    //optional</div><div class="line">        private String year;    //optional</div><div class="line">    </div><div class="line">        public Person(String name, String phoneNum)&#123;</div><div class="line">            this.name = name;</div><div class="line">            this.phoneNum = phoneNum;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        public Person(String name, String phoneNum, int sex)&#123;</div><div class="line">            this.name = name;</div><div class="line">            this.phoneNum = phoneNum;</div><div class="line">            this.sex = sex;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        public Person(String name, String phoneNum, int sex, String year)&#123;</div><div class="line">            this.name = name;</div><div class="line">            this.phoneNum = phoneNum;</div><div class="line">            this.sex = sex;</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">//客户端代码</div><div class="line">Person person1 = new Person(&quot;lwa&quot;,&quot;13813813813&quot;);</div><div class="line">Person person2 = new Person(&quot;lwa&quot;,&quot;13813813813&quot;,1);</div><div class="line">Person person3 = new Person(&quot;lwa&quot;,&quot;13813813813&quot;,1,&quot;13&quot;);</div></pre></td></tr></table></figure></p>
+        <p>为了保证一些必要参数的存在，可以用构造器传参的方式来创建对象。可以提供第一个只含有必要参数的构造器，第二个有一个可选参数的构造器，第三个有多个可选参数的构造器等等。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">public class Person &#123;</div><div class="line">        private String name;    //required</div><div class="line">        private String phoneNum;    //required</div><div class="line">        private int sex;    //optional</div><div class="line">        private String year;    //optional</div><div class="line">    </div><div class="line">        public Person(String name, String phoneNum)&#123;</div><div class="line">            this.name = name;</div><div class="line">            this.phoneNum = phoneNum;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        public Person(String name, String phoneNum, int sex)&#123;</div><div class="line">            this.name = name;</div><div class="line">            this.phoneNum = phoneNum;</div><div class="line">            this.sex = sex;</div><div class="line">        &#125;</div><div class="line">    </div><div class="line">        public Person(String name, String phoneNum, int sex, String year)&#123;</div><div class="line">            this.name = name;</div><div class="line">            this.phoneNum = phoneNum;</div><div class="line">            this.sex = sex;</div><div class="line">        &#125;</div><div class="line">&#125;</div><div class="line">//客户端代码</div><div class="line">Person person1 = new Person(&quot;lwa&quot;,&quot;13813813813&quot;);</div><div class="line">Person person2 = new Person(&quot;lwa&quot;,&quot;13813813813&quot;,1);</div><div class="line">Person person3 = new Person(&quot;lwa&quot;,&quot;13813813813&quot;,1,&quot;13&quot;);</div></pre></td></tr></table></figure></p>
 <p>当你创建实例是可以用参数列表中最短的构造器，但是列表中会有很多个构造器。这个对象中只有两个可选参数，随着可选参数的增多，创建实例会变得越来越麻烦，你不得不一个个的查看参数个数来确保你用的构造器是你想使用的。<br><strong><em>重叠构造模式可行</em>，但是当有许多参数的时候，客户端代码会变得很难编写，并且仍然难以阅读</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">public class Persion &#123;</div><div class="line">    private String name;//required</div><div class="line">    private String phoneNum;//required</div><div class="line">    private int sex;//optional</div><div class="line">    private String year;//optional</div><div class="line"></div><div class="line">    public void setName(String name) &#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setPhoneNum(String phoneNum) &#123;</div><div class="line">        this.phoneNum = phoneNum;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setSex(int sex) &#123;</div><div class="line">        this.sex = sex;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void setYear(String year) &#123;</div><div class="line">        this.year = year;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//客户端代码</div><div class="line">Person persion = new PersonJavaBeans();</div><div class="line">persion.setName(&quot;lwa&quot;);</div><div class="line">persion.setPhoneNum(&quot;13813813813&quot;);</div><div class="line">persion.setSex(1);</div></pre></td></tr></table></figure></p>
 <p>遇到许多构造器参数时也可以用第二种模式javaBeans模式，调用一个无参构造函数俩创建对象，在用setter方法来设置必要参数和可选参数。<br>这种模式虽然创建实例和阅读代码都很容易但是javaBeans模式有很严重的缺点，因为构造过程被分成了几个调用中，<strong><em>在构造过程中javaBean可能处于不一致的状态</em></strong>。另外，<strong><em>javaBean模式阻止了把类做成不可变的可能</em></strong>，这需要程序员付出额外的努力来保证它的线程安全。<br>有第三种模式，既保证了安全性同时也保证了可读性。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">public class Person &#123;</div><div class="line">    private String name;//required</div><div class="line">    private String phoneNum;//required</div><div class="line">    private int sex;//optional</div><div class="line">    private String year;//optional</div><div class="line">    public static class Builder&#123;</div><div class="line">        private String name;//required</div><div class="line">        private String phoneNum;//required</div><div class="line">        private int sex;//optional</div><div class="line">        private String year;//optional</div><div class="line"></div><div class="line">        public Builder(String name, String phoneNum)&#123;</div><div class="line">            this.name = name;</div><div class="line">            this.phoneNum = phoneNum;</div><div class="line">        &#125;</div><div class="line">        public Builder sex(int val)&#123;</div><div class="line">            this.sex = val;</div><div class="line">            return this;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public Builder year(String val)&#123;</div><div class="line">            this.year = val;</div><div class="line">            return this;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public Person build()&#123;</div><div class="line">            return new Person(this);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    private Person(Builder builder)&#123;</div><div class="line">        this.name = builder.name;</div><div class="line">        this.phoneNum = builder.phoneNum;</div><div class="line">        this.sex = builder.sex;</div><div class="line">        this.year = builder.year;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//客户端代码</div><div class="line">Person person = new Person.Builder(&quot;lwa&quot;,&quot;13813813812&quot;).sex(12).year(&quot;22&quot;).build();</div></pre></td></tr></table></figure></p>
 <p>创建builder 的步骤</p>
@@ -333,145 +330,58 @@
 </ol>
 <p>缺点：为了创建对象必须创建他的构造器虽然性能开销在实践中可能不明显，但是在某些特别注重性能的情况下会产生影响<br>简而言之：  如果类的构造器或者静态工厂中具有多个参数，设计者种类时，Builder模式是一种很不错的选择，特别是大多数参数时可选参数时。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/14/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-14T12:10:29+08:00" content="2017-02-14">
-              2017-02-14
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/02/14/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/14/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/effective-java/" rel="tag">#effective java</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/14/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
 
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -479,6 +389,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/13/遇到多个构造器参数时要考虑用构建器（Builder）/"
+           data-title="遇到多个构造器参数时要考虑用构建器（Builder）" data-url="http://yoursite.com/2017/03/13/遇到多个构造器参数时要考虑用构建器（Builder）/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -498,8 +416,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -560,6 +487,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -656,6 +594,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
